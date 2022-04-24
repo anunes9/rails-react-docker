@@ -1,0 +1,1 @@
+{"mappings":"AAEA","sources":["src/index.scss"],"sourcesContent":["$red: #e74c3c;\n\nh1 {\n  color: $red;\n}"],"names":[],"version":3,"file":"index.ce1d6491.css.map","sourceRoot":"/__parcel_source_root/"}
