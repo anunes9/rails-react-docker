@@ -20,5 +20,6 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+docker-compose run backend rails db:create
+docker-compose run app rails db:create
+docker-compose run app rails db:migrate
