@@ -1,27 +1,33 @@
 version: '3.4'
 
 services:
-  app:
+  frontend:
+    restart: unless-stopped
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: frontend
+    ports:
+      - 1234:1234
+
+  backend:
+    build:
+      context: backend
     depends_on:
       - database
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - .:/app
-      # - gem_cache:/usr/local/bundle/gems
-    env_file: .env
+      - gem_cache:/usr/local/bundle/gems
+    env_file: ./backend/.env
     environment:
       RAILS_ENV: development
 
   database:
-    image: postgres:12.1
+    image: postgres:12.1-alpine
     volumes:
       - db_data:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
-  # gem_cache:
+  gem_cache:
   db_data:

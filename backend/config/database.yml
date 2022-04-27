@@ -24,11 +24,11 @@ default: &default
   password: <%= ENV['DATABASE_PASSWORD'] %>
   port: <%= ENV['DATABASE_PORT'] || '5432' %>
   host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
   timeout: 5000
 
 development:
   <<: *default
-  database: backend_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -86,6 +86,3 @@ test:
 #
 production:
   <<: *default
-  database: backend_production
-  username: backend
-  password: <%= ENV["BACKEND_DATABASE_PASSWORD"] %>

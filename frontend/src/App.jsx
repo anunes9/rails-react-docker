@@ -9,7 +9,7 @@ export const App = () => {
   }, [])
 
   const healthCheckRequest = async () => {
-    const url = 'http://localhost:3000/api/health-check'
+    const url = 'http://0.0.0.0:3000/api/health-check'
     const options = {
       method: 'GET',
     }
